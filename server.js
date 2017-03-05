@@ -37,17 +37,20 @@ app.get('/todos/:id', function(req, res){
 app.post('/todos', function(req, res){
     var body = req.body;
     
-    var hold = {
+    body.id = todoNextId;
+    todoNextId++;
+    todos.push(body);
+    
+    /*var hold = {
         id: todoNextId,
         description: body.description,
         completed: body.completed
     };
-    todos.push(hold);
-    res.json(todos);
+    todos.push(hold);*/
     
-    todoNextId++;
+    res.json(todos);
 });
 
 app.listen(PORT, function(){
-   console.log('express listening on port ' + PORT); 
+    console.log('express listening on port ' + PORT); 
 });
