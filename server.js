@@ -28,7 +28,6 @@ app.get('/todos/:id', function(req, res){
     }
 });
 
-
 app.post('/todos', function(req, res){
     var body = _.pick(req.body, 'completed', 'description');
     
@@ -40,7 +39,7 @@ app.post('/todos', function(req, res){
     body.id = todoNextId;
     todoNextId++;
     todos.push(body);
-    res.json(todos);
+    res.json(body);
 });
 
 app.listen(PORT, function(){
